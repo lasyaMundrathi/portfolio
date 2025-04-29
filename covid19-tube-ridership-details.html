@@ -1,0 +1,106 @@
+<section style="background-color: #f5f7fa; padding: 60px 0; font-family: 'Segoe UI', sans-serif;">
+    <div style="max-width: 1000px; margin: auto; background: #fff; padding: 50px 60px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.06);">
+  
+      <h2 style="color: #2567a5; font-size: 2em; font-weight: 700; text-align: center; margin-bottom: 30px;">
+        COVID-19 Impact on London Underground Ridership
+      </h2>
+  
+      <h3 style="color: #2567a5; margin-top: 40px;">Objective</h3>
+      <p>The objective of this project is to <strong>predict the number of taps (N)</strong> at London Underground stations using machine learning, focusing on <strong>XGBoost Regressor</strong> for time-series forecasting. The goal is to aid public transport optimization through accurate prediction models.</p>
+  
+      <h3 style="color: #2567a5;">Background</h3>
+      <p>The dataset from <strong>Transport for London (TfL)</strong> spans from Jan 1, 2020 to Apr 30, 2021, covering daily entries/exits at 15-minute intervals. It includes station metadata, lockdown phases, and public service closures. Understanding how events impact travel behavior helps improve service delivery and urban planning.</p>
+  
+      <h3 style="color: #2567a5;">Dataset Highlights</h3>
+      <ul style="line-height: 1.8;">
+        <li>Temporal resolution: 15-minute intervals</li>
+        <li>Features include station name, borough, lockdown phases, closures (schools, pubs, shops)</li>
+        <li>Target variable: <strong>N (number of taps)</strong></li>
+      </ul>
+  
+      <h3 style="color: #2567a5;">Machine Learning Pipeline</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Data Preprocessing:</strong> Fill missing values, label encode categorical features, and convert dates.</li>
+        <li><strong>Feature Engineering:</strong> Lag features for 7, 14, and 21-day intervals; new date-based fields (month, quarter, is_weekend); one-hot and mean encoding.</li>
+        <li><strong>Model Selection:</strong> Main model: <strong>XGBoost</strong>; benchmarks: <strong>Random Forest, SVM, Linear Regression</strong>.</li>
+        <li><strong>Validation:</strong> Used <strong>TimeSeriesSplit</strong> (6-fold) to preserve time dependencies. Metrics: RMSE, MAE, R².</li>
+        <li><strong>Hyperparameter Tuning:</strong> Applied <strong>RandomizedSearchCV</strong> for optimal model settings.</li>
+      </ul>
+  
+      <h3 style="color: #2567a5;">Feature Descriptions</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>CALENDARDATE:</strong> Date of entry/exit</li>
+        <li><strong>HOUR:</strong> Quarter-hour represented in decimals (e.g., 9.25)</li>
+        <li><strong>ENTRYEXIT:</strong> Whether the movement was an entry or exit</li>
+        <li><strong>STATIONTYPE:</strong> Categories like Shopping, Termini, Suburb</li>
+        <li><strong>LOCKDOWN_NATIONAL / REGIONAL:</strong> Indicators of restriction levels</li>
+      </ul>
+
+      <h3 style="color: #2567a5; margin-top: 50px;">Data Analysis Visuals</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 30px; align-items: center;">
+
+        <!-- Page 1 -->
+        <img src="Data_Analysis_images/TFL Data Analysis_1.jpg" alt="Data Analysis Page 1"
+             />
+
+        <!-- Page 2 -->
+        <img src="Data_Analysis_images/TFL Data Analysis_2.jpg" alt="Data Analysis Page 2"
+            />
+            
+        <img src="Data_Analysis_images/TFL Data Analysis_3.jpg" alt="Data Analysis Page 3"
+           />
+
+        <img src="Data_Analysis_images/TFL Data Analysis_4.jpg" alt="Data Analysis Page 4"
+             />
+
+        <img src="Data_Analysis_images/TFL Data Analysis_5.jpg" alt="Data Analysis Page 5"
+             />
+
+        <img src="Data_Analysis_images/TFL Data Analysis_6.jpg" alt="Data Analysis Page 6"
+             />
+
+        <!-- Add more as needed -->
+        </div>
+
+  
+      <h3 style="color: #2567a5;">Modeling Approach</h3>
+      <ul style="line-height: 1.8;">
+        <li>Lagged features added by station and hour to retain temporal grouping context</li>
+        <li>Split into train/validation/test sets based on date to avoid leakage</li>
+        <li>XGBoost trained using <strong>reg:squarederror</strong> objective</li>
+        <li>Rolling-window cross-validation across 6 folds</li>
+      </ul>
+  
+      <h3 style="color: #2567a5;">Evaluation</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>RMSE</strong> — Root Mean Squared Error</li>
+        <li><strong>R²</strong> — Coefficient of determination</li>
+        <li><strong>MAE</strong> — Mean Absolute Error</li>
+      </ul>
+      <p>Performance metrics were averaged across all rolling folds for consistency.</p>
+  
+      <h3 style="color: #2567a5;">Key Outcomes</h3>
+      <ul style="line-height: 1.8;">
+        <li>Identified strong impact of lockdown tiers on tap volume</li>
+        <li>Suburban stations showed more resilience than termini or central hubs</li>
+        <li>XGBoost provided the best R² and lowest MAE across most test folds</li>
+      </ul>
+  
+      <h3 style="color: #2567a5;">Additional Insights</h3>
+      <p>Watch the complete data walkthrough and dashboard on YouTube:</p>
+    
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="https://youtu.be/3GTH9xaje5k?si=Oxn0bw3jGgrE233b"
+           target="_blank"
+           style="background-color: #2567a5; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; margin-right: 15px;">
+           📺 View TfL Ridership Dashboard on YouTube
+        </a>
+        <a href="https://github.com/yourusername/covid19-london-tube-ridership"
+           target="_blank"
+           style="background-color: #2567a5; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; margin-right: 15px;">
+            View on GitHub
+        </a>
+    </div>
+  </section>
+  

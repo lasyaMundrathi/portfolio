@@ -1,0 +1,93 @@
+<section style="background-color: #f5f7fa; padding: 60px 0; font-family: 'Segoe UI', sans-serif;">
+    <div style="max-width: 1000px; margin: auto; background: #fff; padding: 50px 60px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.06);">
+  
+      <!-- Project Title -->
+      <h2 style="color: #2567a5; font-size: 2em; font-weight: 700; text-align: center; margin-bottom: 30px;">
+        AWS E-commerce Chatbot: Streamlit + RAG-Powered LLM with CI/CD Deployment
+      </h2>
+  
+      <!-- Chatbot Image -->
+      <div style="text-align: center;">
+        <img src="image.png" alt="Chatbot Screenshot" style="max-width: 480px; width: 100%; border-radius: 12px; margin-bottom: 30px;">
+      </div>
+  
+      <!-- Project Intro -->
+      <p style="font-size: 1.1em; color: #444; text-align: center; max-width: 800px; margin: 0 auto 35px;">
+        Welcome to the <strong>AI-powered chatbot</strong> 🤖 built for <strong>e-commerce platforms</strong> 🛍️. This intelligent assistant helps users with product discovery, real-time support, and answers to store-related questions, improving the overall customer experience.
+      </p>
+  
+      <!-- Key Highlights -->
+      <ul style="padding-left: 20px; color: #333; line-height: 1.8; font-size: 1em;">
+        <li>→ Built with <strong>Retrieval-Augmented Generation (RAG)</strong> using <strong>Streamlit</strong>, <strong>Pinecone</strong>, and <strong>LangChain + Google Generative AI</strong>.</li>
+        <li>→ CI/CD pipeline using <strong>Docker, GitHub Actions, Amazon ECR, ECS (Fargate)</strong>, and secure key handling via <strong>AWS Secrets Manager</strong>.</li>
+        <li>→ Also deployed on <strong>GCP</strong> using <strong>Artifact Registry</strong>, <strong>Cloud Run</strong>, and <strong>GitHub Actions</strong> for automated deployment.</li>
+      </ul>
+  
+      <!-- Deployment Buttons -->
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="https://github.com/lasyaMundrathi/AWS-Deployment-E-commerce-Chatbot-Streamlit-Application-with-RAG-Powered-LLM"
+           target="_blank"
+           style="background-color: #2567a5; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; margin-right: 15px;">
+          View AWS Deployment
+        </a>
+        <a href="https://github.com/lasyaMundrathi/lasyaMundrathi-Ecommerce-chatbot-deployment-with-GCP"
+           target="_blank"
+           style="background-color: #2567a5; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600;">
+          View GCP Deployment
+        </a>
+      </div>
+  
+      <!-- Section: Architecture -->
+      <h3 style="color: #2567a5; margin-top: 60px; font-size: 1.5em;">Architecture</h3>
+      <img src="AWSECOMMERCEARCHITECTURE.gif" alt="Architecture Diagram" style="width: 100%; border-radius: 12px; margin: 25px 0;">
+  
+      <ul style="padding-left: 20px; color: #444; line-height: 1.8;">
+        <li><strong>Frontend/User Interface:</strong> Built with <strong>Streamlit</strong>, providing a <strong>sleek, intuitive UI</strong> for users to interact with the chatbot.
+          <ul style="padding-left: 20px;">
+            <li>🗨️ <em>“What are the key features of this product?”</em></li>
+            <li>🗨️ <em>“Which headphones should I buy for good bass?”</em></li>
+          </ul>
+        </li>
+  
+        <li><strong>Backend/Compute:</strong> Hosted on <strong>Amazon ECS (Fargate)</strong>, enabling a <strong>serverless, fully managed deployment</strong>. Utilizes <strong>Pinecone</strong> for vector search and document embeddings.</li>
+  
+        <li><strong>AI Engine:</strong> Combines <strong>LangChain</strong> and <strong>Google Generative AI</strong> to generate <strong>context-aware, human-like responses</strong>.</li>
+  
+        <li><strong>CI/CD Pipeline:</strong>
+          <ul style="padding-left: 20px;">
+            <li>1️⃣ Build Docker container with GitHub Actions</li>
+            <li>2️⃣ Push to Amazon ECR</li>
+            <li>3️⃣ Deploy to Amazon ECS (Fargate)</li>
+          </ul>
+        </li>
+  
+        <li><strong>Secrets & Monitoring:</strong> <strong>AWS Secrets Manager</strong> injects API keys securely; <strong>CloudWatch</strong> tracks logs and performance.</li>
+      </ul>
+  
+      <!-- Section: Deployment -->
+      <h3 style="color: #2567a5; margin-top: 50px; font-size: 1.5em;">Deployment Process</h3>
+      <ul style="padding-left: 20px; color: #444; line-height: 1.8;">
+        <li><strong>Code Management:</strong> Project stored in GitHub (frontend, backend, CI/CD).</li>
+        <li><strong>CI/CD Automation:</strong> GitHub Actions build and push Docker image to ECR.</li>
+        <li><strong>Deployment:</strong> Container deployed to ECS (Fargate) via task definitions.</li>
+        <li><strong>Secrets:</strong> API keys injected securely using AWS Secrets Manager.</li>
+        <li><strong>Monitoring:</strong> CloudWatch logs system performance and errors in real time.</li>
+      </ul>
+  
+      <!-- Section: Challenges -->
+      <h3 style="color: #2567a5; margin-top: 50px; font-size: 1.5em;">Challenges Solved</h3>
+      <ul style="padding-left: 20px; color: #444; line-height: 1.8;">
+        <li><strong>🔍 Fast Query Handling:</strong> Pinecone enables real-time semantic search on product reviews.</li>
+        <li><strong>🌐 Scalability:</strong> AWS Fargate allows auto-scaling without manual effort.</li>
+        <li><strong>⚙️ Automation:</strong> GitHub Actions fully automate deployment for rapid iteration.</li>
+        <li><strong>🔒 Security:</strong> AWS Secrets Manager protects all sensitive credentials and APIs.</li>
+      </ul>
+  
+      <!-- Section: Outcome -->
+      <h3 style="color: #2567a5; margin-top: 50px; font-size: 1.5em;">Outcome</h3>
+      <p style="color: #444; font-size: 1.1em; line-height: 1.8;">
+        The chatbot delivers a <strong>scalable, secure, and intelligent solution</strong> for e-commerce platforms, enhancing customer engagement with <strong>real-time, contextual assistance</strong> while reducing support overhead through smart automation and efficient cloud-native deployment.
+      </p>
+    </div>
+  </section>
+  
