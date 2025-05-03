@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundrathi Lasya | Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 130px; /* Adjusts for fixed nav/header overlap */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive padding for smaller screens */
+        @media (max-width: 768px) {
+            section {
+                padding: 20px;
+            }
+        }
+
+        /* Table defaults */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            color: #1a1a1a; /* Ensures good contrast in light mode */
+        }
+
+        /* Header background and text */
+        th {
+            background-color: #dbeafe;
+            color: #1e3a8a;
+        }
+
+        /* Dark Theme overrides */
+        body.dark-theme th,
+        body.dark-theme td {
+            color: #f1f5f9 !important;
+            background-color: #1e293b;
+            border-color: #475569;
+        }
+
+        /* Light Theme override */
+        body.light-theme td {
+            color: #1a1a1a;
+        }
+
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 16px 0 8px 0;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #1e293b;
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em; /* or adjust as needed */
+            font-weight: 700;
+            margin: 0;
+        }
+
+        
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.5em;
+        }
+        
+        nav {
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            padding: 10px 0;
+            transition: background-color 0.3s;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        
+        section {
+            
+            max-width: 1000px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        
+        h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #1f2937;
+            font-weight: 1000;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        h2 {
+            margin-top: 0;
+            transition: color 0.3s;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            margin: 6px 6px 0 0;
+            border-radius: 999px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1.0 em;
+            transition: background-color 0.3s, color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .skill-tag:hover {
+            filter: brightness(95%);
+        }
+        
+        .project {
+            margin-bottom: 18px;
+        }
+        
+        .contact-links a {
+            margin-right: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .certification-item {
+            margin-bottom: 20px;
+        }
+        
+        .certification-item button {
+            border: none;
+            padding: 8px 16px;
+            margin-top: 8px;
+            font-size: 1.2 em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        @media (max-width: 600px) {
+            section {
+                padding: 20px 10px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+        }
+        
+        /* Theme Switcher */
+        #themeSelector {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Dark Theme by default */
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+        
+        header {
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+        
+        nav {
+            background-color: #553933;
+        }
+        
+        nav a:hover {
+            color: #ffe082;
+        }
+        
+        section {
+            background-color: #c7cbce;
+            color: #eaeaea;
+            border: 1px solid #334155;
+            padding: 30px 40px;
+        }
+                /* Style subheader only in dark theme */
+        body:not(.light-theme):not(.blue-theme) header h3 {
+            display: inline-block;
+            /* background-color: #334155;  Slate background for contrast */
+            color: #f8fafc;              /* Light text */
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 1.2 em;
+            margin-top: 8px;
+        }
+
+        
+        h2, h3,h4, p,li {
+            color: #000000;
+        }
+        
+        .skill-tag {
+            background-color: #1e293b;
+            color: #fbfbfb;
+        }
+        
+        button, .button-style {
+            background-color: #1c5dc6;
+            color: white;
+        }
+        
+        button:hover, .button-style:hover {
+            background-color: #1c5dc6;
+        }
+        
+        /* Light Theme */
+        .light-theme {
+            background-color: #eaf4fb;
+            color: #1a1a1a;
+        }
+        
+        .light-theme header {
+            background-color: #3a8dde;
+            color: white;
+        }
+        
+        .light-theme nav {
+            background-color: #2567a5;
+        }
+        
+        .light-theme section {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .light-theme h2, .light-theme h3 {
+            color: #2567a5;
+        }
+        
+        .light-theme .skill-tag {
+            background-color: #e3f2fd;
+            color: #2567a5;
+        }
+        
+        .light-theme button, .light-theme .button-style {
+            background-color: #2567a5;
+        }
+        
+        .light-theme button:hover, .light-theme .button-style:hover {
+            background-color: #1d4f82;
+        }
+        
+        /* Blue Theme */
+        .blue-theme {
+            background-color: #6586b7;
+            color: #1a1a1a;
+        }
+        
+        .blue-theme header {
+            background-color: #003459;
+            color: white;
+        }
+        
+        .blue-theme nav {
+            background-color: #1d4f82;
+        }
+        
+        .blue-theme section {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .blue-theme h2, .blue-theme h3 {
+            color: #1a1a1a;
+        }
+        
+        .blue-theme .skill-tag {
+            background-color: #e3f2fd;
+            color: #2567a5;
+        }
+        
+        /* About section specific styles */
+        .about-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            .about-container img {
+                margin-top: 25px;
+            }
+        }
+        
+        /* Project tags styles */
+        .project-tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 1.0 em;
+            display: inline-block;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Switcher -->
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+        <select id="themeSelector" onchange="changeTheme(this.value)">
+            <option value="dark">🌙 Dark</option>
+            <option value="light">☀️ Light</option>
+            <option value="blue">🔵 Blue</option>
+        </select>
+    </div>
+    
+    <!-- Theme Script -->
+    <script>
+        function changeTheme(theme) {
+            document.body.classList.remove("dark-theme", "light-theme", "blue-theme");
+            if (theme !== "dark") {
+                document.body.classList.add(`${theme}-theme`);
+            }
+        }
+    </script>
+<section style="background-color: #f5f7fa; padding: 60px 0; font-family: 'Segoe UI', sans-serif;">
+    <div style="max-width: 1000px; margin: auto; background: #fff; padding: 50px 60px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.06);">
+  
+
+        <h2 style="color: #2567a5; font-size: 2em; font-weight: 700; text-align: center; margin-bottom: 30px;">
+            🎧 Decoding London's Soundscape: Audio Classification with ML
+          </h2>
+
+    <h2>🎯 Problem Statement</h2>
+    <p>Understanding and interpreting audio data is pivotal in numerous applications, from urban planning to personalized user experiences. This project embarks on a dual mission:</p>
+    <ul>
+      <li><span class="highlight">Acoustic Environment Classification:</span> Determine whether a 7-second audio clip was recorded indoors or outdoors.</li>
+      <li><span class="highlight">Gender Classification:</span> Identify the speaker's gender (male or female) based on audio recordings.</li>
+    </ul>
+    <p>Both tasks leverage the <strong>MLEnd London Sounds</strong> dataset, enriched with manually labeled gender data, to train supervised machine learning models.</p>
+
+    <h2>🔍 Why This Matters</h2>
+    <ul>
+      <li><strong>Complexity of Audio Data:</strong> Audio signals are time-series data with intricate patterns. Deciphering these patterns requires sophisticated feature extraction and analysis.</li>
+      <li><strong>Real-world Applications:</strong>
+        <ul>
+          <li><em>Acoustic Environment:</em> Enhances context-aware systems, aids in urban noise monitoring, and improves hearing aid functionalities.</li>
+          <li><em>Gender Classification:</em> Supports personalized interfaces, sociolinguistic studies, and demographic analytics.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>🛠️ Machine Learning Pipeline</h2>
+
+    <h3>1. Data Acquisition</h3>
+    <ul>
+      <li>2,498 audio clips (7 seconds each) from various London locations</li>
+      <li>Metadata includes: area, spot, environment, participant ID</li>
+      <li>Manual labeling of gender due to missing demographic data</li>
+    </ul>
+
+    <h3>2. Feature Extraction</h3>
+    <p>Utilized <code>librosa</code> library to extract the following spectral features:</p>
+    <ul>
+      <li><strong>MFCC (Mel-Frequency Cepstral Coefficients)</strong>: Captures timbral properties</li>
+      <li><strong>Spectral Bandwidth</strong>: Measures frequency spread</li>
+      <li><strong>Zero-Crossing Rate</strong>: Counts sign changes in waveform</li>
+      <li><strong>Tempo</strong>: Estimates audio beat speed</li>
+    </ul>
+
+    <h3>3. Data Preprocessing</h3>
+    <ul>
+      <li><strong>Skewness Reduction:</strong> Log, square, and cube root transformations</li>
+      <li><strong>Standardization:</strong> Features scaled to mean 0 and variance 1</li>
+    </ul>
+
+    <h3>4. Model Training & Tuning</h3>
+    <ul>
+      <li><strong>Split:</strong> 70% training / 30% testing</li>
+      <li><strong>Models Used:</strong> Random Forest, SVM, KNN, Logistic Regression</li>
+      <li><strong>Hyperparameter Tuning:</strong> Performed using <code>RandomizedSearchCV</code></li>
+    </ul>
+
+    <h3>5. Evaluation Metrics</h3>
+    <ul>
+      <li>Accuracy</li>
+      <li>Precision</li>
+      <li>Recall</li>
+      <li>F1-Score</li>
+      <li>Confusion Matrix</li>
+    </ul>
+
+    <h2>📊 Results</h2>
+
+    <h3>Acoustic Environment Classification</h3>
+    <table>
+      <tr><th>Model</th><th>Accuracy</th></tr>
+      <tr><td>Random Forest</td><td>95%</td></tr>
+      <tr><td>SVM</td><td>93%</td></tr>
+      <tr><td>KNN</td><td>90%</td></tr>
+      <tr><td>Logistic Regression</td><td>88%</td></tr>
+    </table>
+
+    <h3>Gender Classification</h3>
+    <table>
+      <tr><th>Model</th><th>Accuracy</th></tr>
+      <tr><td>Random Forest</td><td>92%</td></tr>
+      <tr><td>SVM</td><td>89%</td></tr>
+      <tr><td>KNN</td><td>87%</td></tr>
+      <tr><td>Logistic Regression</td><td>85%</td></tr>
+    </table>
+    <p><em>Note: The above accuracies are based on experimentation. For details, refer to the GitHub repositories.</em></p>
+
+    <h2>🧠 Key Insights</h2>
+    <ul>
+      <li><strong>MFCCs</strong> were the most influential features across both tasks</li>
+      <li><strong>Random Forest</strong> offered best accuracy and generalization</li>
+      <li><strong>Manual Gender Labeling</strong> was critical for reliable results</li>
+    </ul>
+
+    <h2>🔗 Resources</h2>
+    <ul>
+      <li><a href="https://github.com/lasyaMundrathi/MLEnd-London-Sounds-environment-classification" target="_blank">Environment Classification Repository</a></li>
+      <li><a href="https://github.com/lasyaMundrathi/MLEnd-London-Sounds-gender-classification" target="_blank">Gender Classification Repository</a></li>
+    </ul>
+
+    <h2>📌 Conclusion</h2>
+    <p>This project demonstrates the effectiveness of machine learning in classifying audio recordings by environment and speaker gender. With proper feature extraction and model tuning, it's possible to build systems that can intelligently interpret audio — a capability that's increasingly relevant across industries.</p>
+  </div>
+</html>
