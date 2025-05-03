@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,25 +14,54 @@
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
         }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 130px; /* Adjusts for fixed nav/header overlap */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive padding for smaller screens */
+        @media (max-width: 768px) {
+            section {
+                padding: 20px;
+            }
+        }
+
         
         header {
-            padding: 40px 0 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 16px 0 8px 0;
             text-align: center;
             transition: background-color 0.3s, color 0.3s;
+            background-color: #1e293b;
         }
         
         header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em; /* or adjust as needed */
+            font-weight: 700;
             margin: 0;
-            font-size: 2.5em;
         }
+
         
         header p {
             margin: 10px 0 0 0;
-            font-size: 1.2em;
+            font-size: 1.5em;
         }
         
         nav {
+            position: fixed;
+            width: 100%;
+            z-index: 999;
             text-align: center;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
             padding: 10px 0;
             transition: background-color 0.3s;
         }
@@ -40,18 +70,28 @@
             color: #fff;
             text-decoration: none;
             margin: 0 20px;
+            text-transform: uppercase;
             font-weight: bold;
             transition: color 0.2s;
         }
         
         section {
-            max-width: 900px;
+            
+            max-width: 1000px;
             margin: 40px auto;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.06);
             transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
         }
         
+        h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #1f2937;
+            font-weight: 1000;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+
         h2 {
             margin-top: 0;
             transition: color 0.3s;
@@ -63,10 +103,12 @@
         
         .skill-tag {
             display: inline-block;
-            padding: 8px 14px;
+            padding: 6px 14px;
             margin: 6px 6px 0 0;
-            border-radius: 20px;
-            font-size: 0.85em;
+            border-radius: 999px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1.0 em;
             transition: background-color 0.3s, color 0.3s;
             white-space: nowrap;
         }
@@ -97,7 +139,7 @@
             border: none;
             padding: 8px 16px;
             margin-top: 8px;
-            font-size: 0.9em;
+            font-size: 1.2 em;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -108,7 +150,7 @@
                 padding: 20px 10px;
             }
             header h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
         }
         
@@ -127,7 +169,7 @@
         }
         
         header {
-            background-color: #1e293b;
+            background-color: #0f172a;
             color: #f1f5f9;
         }
         
@@ -145,6 +187,18 @@
             border: 1px solid #334155;
             padding: 30px 40px;
         }
+                /* Style subheader only in dark theme */
+        body:not(.light-theme):not(.blue-theme) header h3 {
+            display: inline-block;
+            /* background-color: #334155;  Slate background for contrast */
+            color: #f8fafc;              /* Light text */
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 1.2 em;
+            margin-top: 8px;
+        }
+
         
         h2, h3,h4, p,li {
             color: #000000;
@@ -255,7 +309,7 @@
         .project-tag {
             padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.9em;
+            font-size: 1.0 em;
             display: inline-block;
             margin: 4px;
         }
@@ -299,14 +353,35 @@
         <div class="about-container">
             <!-- Text Content -->
             <div style="flex: 1; padding-right: 30px; min-width: 280px;">
-                <h2>About Me</h2>
-                <p>
+                <h2 style="
+                font-family: 'Playfair Display', serif;
+                font-size: 2em;
+                text-align: center;
+                margin-bottom: 30px;
+                color: #1a1a1a;
+            ">About Me</h2>
+                <p style="font-size: 1.8 em; font-family: 'Inter', sans-serif; max-width: 800px; margin: 0 auto 30px; line-height: 1.7; text-align: center;">
+
+                </pstyle>
                     I'm <strong>Lasya</strong>, a data science graduate from Queen Mary University passionate about 
                     <strong>AI, Machine Learning, and Cloud Engineering</strong>. I stay on top of tech trends, rapidly upskill, and apply what I learn to build smart, scalable solutions.
                 </p>
-                <p>
+                <p style="font-size: 1.8 em; font-family: 'Inter', sans-serif; max-width: 800px; margin: 0 auto 30px; line-height: 1.7; text-align: center;">
                     My goal is simple: <strong>turn ideas into AI-driven impact</strong>—whether it's LLMs, ML pipelines, or end-to-end cloud deployments.
                 </p>
+                <a href="Mundrathi_Lasya_Resume.pdf" download class="button-style" style="
+                display: inline-block;
+                padding: 12px 24px;
+                border-radius: 30px;
+                font-weight: 600;
+                text-decoration: none;
+                background-color: #2567a5;
+                color: white;
+                font-family: 'Inter', sans-serif;
+            ">
+                📄 Download Resume
+            </a>
+
             </div>
             
             <!-- Profile Image -->
@@ -317,8 +392,14 @@
     </section>
     
     <section>
-        <h2 style="text-align: center; margin-bottom: 20px;">What I Do 🚀</h2>
-        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 30px; line-height: 1.7; text-align: center;">
+        <h2 style="
+        font-family: 'Playfair Display', serif;
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+    ">What I Do </h2>
+        <p style="font-size: 1.8 em; font-family: 'Inter', sans-serif; max-width: 800px; margin: 0 auto 30px; line-height: 1.7; text-align: center;">
             I build <strong>AI-powered applications</strong> using tools like <strong>LangChain, LLMs, and RAG pipelines</strong>. From automating ML workflows with <strong>CI/CD & Docker</strong> to deploying models in the cloud (<strong>AWS, Azure, GCP</strong>), I bring scalable intelligence to life.
         </p>
         
@@ -332,7 +413,13 @@
     </section>
     
     <section id="achievements">
-        <h2>Achievements and Certifications</h2>
+        <h2 style="
+        font-family: 'Playfair Display', serif;
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+    "> Achievements and Certifications </h2>
         
         <!-- Certification 1 -->
         <div style="display: flex; align-items: flex-start; margin-bottom: 30px;">
@@ -340,8 +427,21 @@
             <div>
                 <p style="font-weight: 600; margin: 0;">Microsoft Certified: Azure Fundamentals (AZ-900)</p>
                 <p style="margin: 4px 0 12px 0; opacity: 0.8;">Issued December 2023</p>
-                <a href="https://learn.microsoft.com/api/credentials/share/en-us/LasyaMundrathi-7110/85FB78B64197DB94?sharingId" target="_blank">
-                    <button>View Certification</button>
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/LasyaMundrathi-7110/85FB78B64197DB94?sharingId" target="_blank",style="background-color: #2567a5;">
+                    <button style="
+                    background-color: #2567a5;
+                    color: white;
+                    padding: 10px 24px;
+                    font-size: 1.5 em;
+                    font-weight: 800;
+                    font-family: 'Inter', sans-serif;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                " onmouseover="this.style.backgroundColor='#1d4f82'" onmouseout="this.style.backgroundColor='#2567a5'">
+                 View Certificate
+                </button>
                 </a>
             </div>
         </div>
@@ -351,9 +451,22 @@
             <img src="microsoft-logo.png" alt="Microsoft Logo" style="height: 50px; width: auto; margin-right: 20px;">
             <div>
                 <p style="font-weight: 600; margin: 0;">Microsoft Certified: Azure Data Fundamentals (DP-900)</p>
-                <p style="margin: 4px 0 12px 0; opacity: 0.8;">Issued October 2023</p>
+                <p style="margin: 4px 0 12px 0; opacity: 0.8;">Issued January 2024</p>
                 <a href="https://learn.microsoft.com/api/credentials/share/en-us/LasyaMundrathi-7110/D7A035D2CBA52B20?sharingId=8BC4322BD735C653" target="_blank">
-                    <button>View Certification</button>
+                    <button style="
+                    background-color: #2567a5;
+                    color: white;
+                    padding: 10px 24px;
+                    font-size: 1.5 em;
+                    font-weight: 800;
+                    font-family: 'Inter', sans-serif;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                " onmouseover="this.style.backgroundColor='#1d4f82'" onmouseout="this.style.backgroundColor='#2567a5'">
+                    View Certificate
+                </button>
                 </a>
             </div>
         </div>
@@ -365,45 +478,167 @@
                 <p style="font-weight: 600; margin: 0;">Microsoft Certified: Azure AI Fundamentals (AI-900)</p>
                 <p style="margin: 4px 0 12px 0; opacity: 0.8;">Issued October 2023</p>
                 <a href="https://learn.microsoft.com/api/credentials/share/en-us/LasyaMundrathi-7110/B366605EB39FE70A?sharingId" target="_blank">
-                    <button>View Certification</button>
+                    <button style="
+                    background-color: #2567a5;
+                    color: white;
+                    padding: 10px 24px;
+                    font-size: 1.5 em;
+                    font-weight: 800;
+                    font-family: 'Inter', sans-serif;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                " onmouseover="this.style.backgroundColor='#1d4f82'" onmouseout="this.style.backgroundColor='#2567a5'">
+                     View Certificate
+                </button>
                 </a>
             </div>
         </div>
     </section>
     
     <section id="education">
-        <h2>Education</h2>
+        <h2 style="
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        ">Education</h2>
         
         <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <!-- Queen Mary Badge -->
             <div style="flex: 0 0 180px; text-align: center;">
-                <img src="QMUL-logo.jpg" alt="Queen Mary Logo" style="max-width: 150px; height: auto;">
+                <img src="QMUL-logo-transparent.png" alt="Queen Mary Logo" style="height: 40px; width: auto; margin-right: 20px;">
+                <!-- <img src="QMUL-logo-transparent.png" alt="Queen Mary Logo" style="max-width: 140px; height: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"> -->
             </div>
+            
+            <!-- Education Text Content -->
             <div style="flex: 1;">
-                <h3 style="margin: 0; font-size: 1.8em; font-weight: bold;">Queen Mary University of London</h3>
-                <p style="margin: 8px 0 0; font-weight: 600; font-size: 1.2em;">Master in Data Science</p>
-                <p style="margin: 6px 0; opacity: 0.8;">2022 – 2024 | Russell Group University</p>
-                <p style="margin: 6px 0 16px 0; opacity: 0.8;">Grade: Distinction</p>
-                <p style="margin: 0 0 20px 0; border-left: 3px solid; padding-left: 12px;">
+                <h3 style="
+                    margin: 0;
+                    font-size: 1.8em;
+                    font-weight: 700;
+                    font-family: 'Playfair Display', serif;
+                    color: #1f2937;
+                ">Queen Mary University of London</h3>
+                
+                <p style="
+                    margin: 8px 0 0;
+                    font-weight: 600;
+                    font-size: 1.2em;
+                    font-family: 'Inter', sans-serif;
+                    color: #2567a5;
+                ">Master in Data Science</p>
+                
+                <p style="margin: 6px 0; opacity: 0.85; font-family: 'Inter', sans-serif;">2022 – 2024 | Russell Group University</p>
+                
+                <!-- Distinction Badge -->
+                <p style="
+                    margin: 6px 0 12px;
+                    font-family: 'Inter', sans-serif;
+                    display: inline-block;
+                    background-color: #e0f2fe;
+                    color: #0369a1;
+                    font-weight: 600;
+                    padding: 4px 10px;
+                    border-radius: 6px;
+                    font-size: 0.95em;
+                ">Grade: Distinction</p>
+                
+                <p style="
+                    margin: 12px 0 20px;
+                    border-left: 3px solid #2567a5;
+                    padding-left: 16px;
+                    font-family: 'Inter', sans-serif;
+                    line-height: 1.6;
+                    color: #111827;
+                ">
                     Ranked in the top 3% of the program. Completed advanced coursework in Machine Learning, Deep Learning, Statistics, Natural Language Processing, Big Data Engineering, Graph Analytics, Data Mining, Reinforcement Learning, and AI-ML systems.
                 </p>
+                
                 <a href="Masters Degree Certificate.jpg" target="_blank">
-                    <button style="padding: 10px 24px; font-size: 1em;">View Certificate</button>
+                    <button style="
+                        padding: 10px 24px;
+                        font-size: 1.2 em;
+                        background-color: #2567a5;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        font-family: 'Inter', sans-serif;
+                        transition: background-color 0.3s;
+                    " onmouseover="this.style.backgroundColor='#1d4f82'" onmouseout="this.style.backgroundColor='#2567a5'">
+                        🎓 View Certificate
+                    </button>
                 </a>
             </div>
         </div>
     </section>
     
+    
     <section id="experience">
-        <h2>Experience</h2>
+        <h2 style="
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        ">Experience</h2>
         
-        <div style="display: flex; align-items: flex-start; margin-top: 20px;">
-            <img src="Cognizant-Logo.png" alt="Cognizant Logo" style="height: 60px; width: auto; margin-right: 20px;">
-            <div>
-                <p style="margin: 0; font-weight: 600; font-size: 1.1em;">
-                    Data Analyst <span style="font-weight: normal;">at Cognizant Technology Solutions</span>
+        <div style="
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 0;
+        ">
+            <!-- Company Logo -->
+            <div style="flex: 0 0 auto;">
+                <img src="Cognizant-Logo.png" alt="Cognizant Logo" style="
+                    height: 60px;
+                    width: auto;
+                    border-radius: 6px;
+                ">
+            </div>
+            
+            <!-- Job Details -->
+            <div style="flex: 1;">
+                <p style="
+                    margin: 0;
+                    font-size: 1.2 em;
+                    font-weight: 600;
+                    font-family: 'Inter', sans-serif;
+                    color: #1f2937;
+                ">
+                    Data Analyst <span style="font-weight: 400; color: #374151;">at Cognizant Technology Solutions</span>
                 </p>
-                <p style="margin: 4px 0 12px 0; opacity: 0.8;">Dec 2020 – Aug 2022</p>
-                <ul style="padding-left: 20px; margin-top: 0; line-height: 1.6;">
+                
+                <!-- Time Period Badge -->
+                <p style="
+                    margin: 6px 0 16px 0;
+                    font-size: 0.95em;
+                    font-family: 'Inter', sans-serif;
+                    display: inline-block;
+                    background-color: #e0f2fe;
+                    color: #0369a1;
+                    padding: 4px 10px;
+                    border-radius: 6px;
+                    font-weight: 500;
+                ">
+                   <strong> Dec 2020 – Aug 2022</strong>
+                </p>
+                
+                <!-- Responsibilities -->
+                <ul style="
+                    padding-left: 20px;
+                    margin: 0;
+                    line-height: 1.7;
+                    font-family: 'Inter', sans-serif;
+                    color: #1a1a1a;
+                    font-size: 0.98em;
+                ">
                     <li>Conducted EDA on 4,000+ customers and 20,000 transactions using SQL and Excel Power Pivot, enabling targeted marketing strategies.</li>
                     <li>Built real-time dashboards in Tableau and Power BI, saving 5+ hours weekly and cutting infrastructure costs by 20% via Azure SQL Database migration.</li>
                     <li>Developed ML models (XGBoost, Random Forest) and NLP solutions, increasing website traffic by 30% and SERP rankings by 40%.</li>
@@ -412,143 +647,214 @@
         </div>
     </section>
     
-    <section id="skills">
-        <h2>Skills</h2>
-        
-        <!-- Skill Section Template -->
-        <div style="margin-bottom: 20px;">
-            <h4 style="margin-bottom: 8px;">Cloud, Big Data & MLOps</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                <span class="skill-tag">AWS (SageMaker, Bedrock)</span>
-                <span class="skill-tag">Google Cloud</span>
-                <span class="skill-tag">Azure</span>
-                <span class="skill-tag">Apache Spark</span>
-                <span class="skill-tag">Hadoop</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">CI/CD</span>
-                <span class="skill-tag">A2A Integration</span>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <h4 style="margin-bottom: 8px;">Machine Learning, Deep Learning & NLP</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                <span class="skill-tag">Supervised Learning</span>
-                <span class="skill-tag">Reinforcement Learning</span>
-                <span class="skill-tag">Transformers</span>
-                <span class="skill-tag">BERT</span>
-                <span class="skill-tag">XGBoost</span>
-                <span class="skill-tag">Scikit-Learn</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">LangChain</span>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <h4 style="margin-bottom: 8px;">Generative AI & LLM Tools</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                <span class="skill-tag">LangFlow</span>
-                <span class="skill-tag">LangGraph</span>
-                <span class="skill-tag">Google Gemini AI</span>
-                <span class="skill-tag">Hugging Face</span>
-                <span class="skill-tag">ChatGPT API</span>
-                <span class="skill-tag">Claude</span>
-                <span class="skill-tag">DeepSpeed</span>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <h4 style="margin-bottom: 8px;">Vector Databases</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                <span class="skill-tag">FAISS</span>
-                <span class="skill-tag">Pinecone</span>
-                <span class="skill-tag">Qdrant</span>
-                <span class="skill-tag">Milvus</span>
-                <span class="skill-tag">ChromaDB</span>
-            </div>
-        </div>
-        
-        <div>
-            <h4 style="margin-bottom: 8px;">Programming & Visualization</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">FastAPI</span>
-                <span class="skill-tag">Power BI</span>
-                <span class="skill-tag">Tableau</span>
-                <span class="skill-tag">Excel (DAX)</span>
-                <span class="skill-tag">Grafana</span>
-                <span class="skill-tag">ETL Pipelines</span>
-            </div>
-        </div>
-    </section>
     
-    <section id="projects">
-        <h2>Projects</h2>
-        
+    
+    <section id="skills">
+        <h2 style="
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        ">Tools Exposure</h2>
+      
+        <!-- Skill Group Template -->
+        <div class="skill-group" style="margin-bottom: 30px; border-left: 3px solid #2567a5; padding-left: 15px;">
+          <h4 style="margin-bottom: 12px; font-family: 'Inter', sans-serif; font-size: 1.2em;">
+            ☁️ <strong>Cloud, Big Data & MLOps</strong>
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">AWS (SageMaker, Bedrock)</span>
+            <span class="skill-tag">Google Cloud</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">Apache Spark</span>
+            <span class="skill-tag">Hadoop</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">A2A Integration</span>
+          </div>
+        </div>
+      
+        <div class="skill-group" style="margin-bottom: 30px; border-left: 3px solid #2567a5; padding-left: 15px;">
+          <h4 style="margin-bottom: 12px; font-family: 'Inter', sans-serif; font-size: 1.1em;">
+             <strong>Machine Learning, Deep Learning & NLP</strong>
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">Supervised Learning</span>
+            <span class="skill-tag">Reinforcement Learning</span>
+            <span class="skill-tag">Transformers</span>
+            <span class="skill-tag">BERT</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">LangChain</span>
+          </div>
+        </div>
+      
+        <div class="skill-group" style="margin-bottom: 30px; border-left: 3px solid #2567a5; padding-left: 15px;">
+          <h4 style="margin-bottom: 12px; font-family: 'Inter', sans-serif; font-size: 1.2 em;">
+            <strong>Generative AI & LLM Tools</strong>
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">LangFlow</span>
+            <span class="skill-tag">LangGraph</span>
+            <span class="skill-tag">Google Gemini AI</span>
+            <span class="skill-tag">Hugging Face</span>
+            <span class="skill-tag">ChatGPT API</span>
+            <span class="skill-tag">Claude</span>
+            <span class="skill-tag">DeepSpeed</span>
+          </div>
+        </div>
+      
+        <div class="skill-group" style="margin-bottom: 30px; border-left: 3px solid #2567a5; padding-left: 15px;">
+          <h4 style="margin-bottom: 12px; font-family: 'Inter', sans-serif; font-size: 1.2 em;">
+         <strong>Vector Databases</strong>
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">FAISS</span>
+            <span class="skill-tag">Pinecone</span>
+            <span class="skill-tag">Qdrant</span>
+            <span class="skill-tag">Milvus</span>
+            <span class="skill-tag">ChromaDB</span>
+          </div>
+        </div>
+      
+        <div class="skill-group" style="margin-bottom: 30px; border-left: 3px solid #2567a5; padding-left: 15px;">
+          <h4 style="margin-bottom: 12px; font-family: 'Inter', sans-serif; font-size: 1.1em;">
+         <strong>Programming & Visualization</strong>
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Excel (DAX)</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">ETL Pipelines</span>
+          </div>
+        </div>
+      </section>
+      
+    
+      <section id="projects" style="padding: 50px 20px;">
+            <h2 style="
+                font-family: 'Playfair Display', serif;
+                font-size: 2em;
+                text-align: center;
+                margin-bottom: 30px;
+                color: #1a1a1a;
+            ">Projects</h2>
+      
         <!-- Project 1 -->
-        <div style="margin-top: 30px;">
-            <h3 style="margin-bottom: 5px;">The Impact of COVID-19 on London Tube Ridership</h3>
-            <p>Analyzed and forecasted London Underground ridership trends using 17M+ entry-exit records during the COVID-19 pandemic. Leveraged machine learning models such as XGBoost and Random Forest to assess the effects of lockdowns on public transportation behavior and predict future passenger volumes.</p>
-            
-            <a href="https://github.com/yourusername/covid19-london-tube-ridership" target="_blank" style="margin-right: 15px; color: #2567a5;">View on GitHub</a>
-            <a href="covid19-tube-ridership-details.html" target="_blank" class="button-style" style="display: inline-block; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500;">
-                View More
-            </a>
-            
-            <!-- Skills / Tech Badges -->
-            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px;">
-                <span class="project-tag" style="background-color: #fff3cd; color: #7b5e00;">Python</span>
-                <span class="project-tag" style="background-color: #e9ecef; color: #333;">Power BI</span>
-                <span class="project-tag" style="background-color: #f8d7da; color: #842029;">Flask</span>
-                <span class="project-tag" style="background-color: #e1d5f6; color: #4b0082;">Random Forest</span>
-                <span class="project-tag" style="background-color: #e1d5f6; color: #4b0082;">XGBoost</span>
-                <span class="project-tag" style="background-color: #f1f1f1; color: #333;">Jupyter Notebook</span>
-                <span class="project-tag" style="background-color: #f8d7da; color: #842029;">HTML</span>
-                <span class="project-tag" style="background-color: #fff3cd; color: #7b5e00;">CSS</span>
-                <span class="project-tag" style="background-color: #e3f2fd; color: #2567a5;">Docker</span>
-                <span class="project-tag" style="background-color: #fce8e6; color: #a94442;">FastAPI</span>
-            </div>
+        <div style="margin-bottom: 50px;">
+          <h4 style="margin-bottom: 12px; font-family: 'Inter', sans-serif; font-size: 1.2em;">
+         <strong>The Impact of COVID-19 on London Tube Ridership</strong>
+          </h4>
+      
+          <p style="font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px; color: #333;">
+            Analyzed and forecasted London Underground ridership trends using 17M+ entry-exit records during the COVID-19 pandemic. 
+            Leveraged machine learning models such as XGBoost and Random Forest to assess the effects of lockdowns on public transportation behavior 
+            and predict future passenger volumes.
+          </p>
+      
+          <div style="margin-bottom: 12px;">
+            <a href="https://github.com/lasyaMundrathi/COVID-19-Impact-Data-Analysis-Passenger-Flow-Prediction-in-TFL-London-" target="_blank" style="margin-right: 15px; color: #2567a5; font-weight: 500;">View on GitHub</a>
+            <a href="covid19-tube-ridership-details.html" target="_blank" class="button-style" style="
+              display: inline-block;
+              padding: 8px 16px;
+              border-radius: 6px;
+              font-weight: 600;
+              background-color: #2567a5;
+              color: white;
+              text-decoration: none;
+            ">View More</a>
+          </div>
+      
+          <!-- Tags -->
+          <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="project-tag" style="background-color: #fef3c7; color: #92400e;">Python</span>
+            <span class="project-tag" style="background-color: #e2e8f0; color: #1e293b;">Power BI</span>
+            <span class="project-tag" style="background-color: #fde2e1; color: #b91c1c;">Flask</span>
+            <span class="project-tag" style="background-color: #ddd6fe; color: #5b21b6;">Random Forest</span>
+            <span class="project-tag" style="background-color: #ddd6fe; color: #5b21b6;">XGBoost</span>
+            <span class="project-tag" style="background-color: #f1f5f9; color: #1f2937;">Jupyter Notebook</span>
+            <span class="project-tag" style="background-color: #fde2e1; color: #b91c1c;">HTML</span>
+            <span class="project-tag" style="background-color: #fef3c7; color: #92400e;">CSS</span>
+            <span class="project-tag" style="background-color: #e3f2fd; color: #0369a1;">Docker</span>
+            <span class="project-tag" style="background-color: #fce7f3; color: #9d174d;">FastAPI</span>
+          </div>
         </div>
-        
+      
         <!-- Project 2 -->
-        <div style="margin-top: 30px;">
-            <h3 style="margin-bottom: 5px;">AWS E-commerce Chatbot: Streamlit + RAG-Powered LLM</h3>
-            <p>Developed an AI-powered chatbot for e-commerce platforms using Retrieval-Augmented Generation (RAG) pipelines, Pinecone vector database, Streamlit frontend, and deployed with a fully automated CI/CD pipeline on AWS ECS (Fargate).</p>
-            <a href="https://github.com/lasyaMundrathi/AWS-Deployment-E-commerce-Chatbot-Streamlit-Application-with-RAG-Powered-LLM" target="_blank" style="margin-right: 15px; color: #2567a5;">View on GitHub</a>
-            <a href="aws-ecommerce-chatbot-details.html" target="_blank" class="button-style" style="display: inline-block; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500;">
-                View More
-            </a>
-            
-            <!-- Skills / Tech Tags -->
-            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px;">
-                <span class="project-tag" style="background-color: #e3f2fd; color: #2567a5;">GENERATIVE AI</span>
-                <span class="project-tag" style="background-color: #fff3cd; color: #7b5e00;">PINECONE</span>
-                <span class="project-tag" style="background-color: #fce8e6; color: #a94442;">Langchain</span>
-                <span class="project-tag" style="background-color: #fff8dc; color: #7c6000;">Python</span>
-                <span class="project-tag" style="background-color: #f8d7da; color: #842029;">Docker</span>
-                <span class="project-tag" style="background-color: #e9ecef; color: #333;">AWS ECR</span>
-                <span class="project-tag" style="background-color: #d1d3d4; color: #000;">AWS CLOUDWATCH</span>
-                <span class="project-tag" style="background-color: #f1f1f1; color: #333;">Amazon ECS (with Fargate)</span>
-                <span class="project-tag" style="background-color: #e2e3e5; color: #333;">AWS Secrets Manager</span>
-                <span class="project-tag" style="background-color: #fff3cd; color: #7b5e00;">Amazon CloudWatch</span>
-                <span class="project-tag" style="background-color: #f3f4f6; color: #111;">GEMINI</span>
-            </div>
+        <div style="margin-bottom: 50px;">
+          <h4 style="margin-bottom: 12px; font-family: 'Inter', sans-serif; font-size: 1.2em;">
+            <strong>AWS E-commerce Chatbot: Streamlit + RAG-Powered LLM</strong>
+             </h4>
+      
+          <p style="font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px; color: #333;">
+            Developed an AI-powered chatbot for e-commerce platforms using Retrieval-Augmented Generation (RAG) pipelines, 
+            Pinecone vector database, Streamlit frontend, and deployed with a fully automated CI/CD pipeline on AWS ECS (Fargate).
+          </p>
+      
+          <div style="margin-bottom: 12px;">
+            <a href="https://github.com/lasyaMundrathi/AWS-Deployment-E-commerce-Chatbot-Streamlit-Application-with-RAG-Powered-LLM" target="_blank" style="margin-right: 15px; color: #2567a5; font-weight: 500;">View on GitHub</a>
+            <a href="aws-ecommerce-chatbot-details.html" target="_blank" class="button-style" style="
+              display: inline-block;
+              padding: 8px 16px;
+              border-radius: 6px;
+              font-weight: 600;
+              background-color: #2567a5;
+              color: white;
+              text-decoration: none;
+            ">View More</a>
+          </div>
+      
+          <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="project-tag" style="background-color: #e0f2fe; color: #0369a1;">Generative AI</span>
+            <span class="project-tag" style="background-color: #fef3c7; color: #92400e;">Pinecone</span>
+            <span class="project-tag" style="background-color: #fde2e1; color: #b91c1c;">Langchain</span>
+            <span class="project-tag" style="background-color: #fef9c3; color: #78350f;">Python</span>
+            <span class="project-tag" style="background-color: #fde2e1; color: #b91c1c;">Docker</span>
+            <span class="project-tag" style="background-color: #e2e8f0; color: #1e293b;">AWS ECR</span>
+            <span class="project-tag" style="background-color: #d1d5db; color: #111827;">AWS CloudWatch</span>
+            <span class="project-tag" style="background-color: #f1f5f9; color: #1f2937;">Amazon ECS (Fargate)</span>
+            <span class="project-tag" style="background-color: #e5e7eb; color: #111827;">AWS Secrets Manager</span>
+            <span class="project-tag" style="background-color: #fef3c7; color: #92400e;">Amazon CloudWatch</span>
+            <span class="project-tag" style="background-color: #e0e7ff; color: #1e40af;">Gemini</span>
+          </div>
         </div>
-        
-        <div style="margin-top: 30px; text-align: center;">
-            <a href="https://github.com/lasyaMundrathi" target="_blank" class="button-style" style="display: inline-block; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600;">
-                ⬇️ Click to view more projects
-            </a>
+      
+        <!-- View More -->
+        <div style="text-align: center;">
+          <a href="https://github.com/lasyaMundrathi" target="_blank" class="button-style" style="
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            background-color: #2254dc;
+            color: white;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+          ">
+            ⬇️ Click to view more projects
+          </a>
         </div>
-    </section>
+      </section>
+      
     
     <section id="contact">
-        <h2 style="text-align: center; margin-bottom: 20px;">Reach Me Out!</h2>
+            <h2 style="
+                font-family: 'Playfair Display', serif;
+                font-size: 2em;
+                text-align: center;
+                margin-bottom: 30px;
+                color: #1a1a1a;
+            ">Reach Me Out!</h2>
         
-        <p style="font-size: 1.1em; margin-bottom: 30px; text-align: center;">
+        <p style="font-size: 1.2 em; margin-bottom: 30px; text-align: center;">
             I'm open for exciting opportunities — <strong>hybrid, on-site, or remote roles.</strong><br>
             <strong>Preferred locations:</strong> 📍 Hyderabad, Bangalore.
         </p>
